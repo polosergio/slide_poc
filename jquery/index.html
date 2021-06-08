@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <style>
+      .slide {
+        transform: translateY(30%);
+        width: 800px;
+        height: 600px;
+        overflow: hidden;
+        margin: auto;
+        background-color: white;
+        text-align: left;
+        box-shadow: 1px 1px 1px 1px black;
+        border-radius: 1px;
+      }
+      .header {
+        text-align: center;
+        font-size: 24px;
+      }
+      .block {
+        display: inline-block;
+        border: 1px solid black;
+        width: 200px;
+        height: 200px;
+        vertical-align: top;
+        box-sizing: border-box;
+      }
+      .row {
+        display: flex;
+        width: 100%;
+        height: auto;
+        min-height: 300px
+      }
+      body {
+        text-align: center;
+        background-color: #CCC;
+      }
+    </style>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <script type="text/javascript">
+      window.onload = () => {
+        $('p').prop('contenteditable', true);
+        $('#slide-container *').draggable();
+      };
+    </script>
+
+    <div style="position: absolute; top: 10; left: 10;">jQuery</div>
+
+    <div id="slide-container" class="slide">
+      <div id="text" class="row">
+        <p class="header" contenteditable="true" style="width: 100%; height: auto;">Property header</p>
+      </div>
+      <div id="blocks" class="row">
+        <div id="div1" class="block"></div>
+        <div id="div2" class="block"></div>
+        <div id="div3" class="block"></div>
+        <div id="div4" class="block">
+          <img src="https://via.placeholder.com/150" draggable="true" id="image" width="150" height="150"/>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <style>
+      .slide {
+        transform: translateY(30%);
+        width: 800px;
+        height: 600px;
+        overflow: hidden;
+        margin: auto;
+        background-color: white;
+        text-align: left;
+        box-shadow: 1px 1px 1px 1px black;
+        border-radius: 1px;
+      }
+      .header {
+        font-size: 24px;
+        text-align: center;
+        width: 100%;
+        height: auto;
+      }
+      .block {
+        display: inline-block;
+        border: 1px solid black;
+        width: 200px;
+        height: 200px;
+        vertical-align: top;
+        box-sizing: border-box;
+      }
+      .row {
+        display: flex;
+        width: 100%;
+        height: auto;
+        min-height: 300px
+      }
+      body {
+        text-align: center;
+        background-color: #CCC;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function allowDrop(ev) {
+        ev.preventDefault();
+      }
+
+      function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+      }
+
+      function drop(ev) {
+        ev.preventDefault();
+        const data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+      }
+    </script>
+
+    <div style="position: absolute; top: 10; left: 10;">Native Javascript</div>
+
+    <div id="slide-container" class="slide">
+      <div id="text" class="row" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <p class="header" contenteditable="true" style="width: 100%; height: auto;">Property header</p>
+      </div>
+      <div id="blocks" class="row">
+        <div id="div1" class="block" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div id="div2" class="block" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div id="div3" class="block" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div id="div4" class="block" ondrop="drop(event)" ondragover="allowDrop(event)">
+          <img src="https://via.placeholder.com/150" draggable="true" id="image" ondragstart="drag(event)" width="150" height="150"/>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

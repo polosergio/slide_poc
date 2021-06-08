@@ -1,0 +1,113 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/grapesjs/0.17.4/css/grapes.min.css" integrity="sha512-lwxAeLCxFtX4NpYrI8V8uNyOysWjUPZNg1ZIP5mmdGkanQ9oWCkNiOyRVAqIrdhPdfBqpVYGHwdEVFtkzA8XBQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/grapesjs/0.17.4/grapes.min.js" integrity="sha512-n01rbnGZ2i9OjddxbmSApjsECkMipSpzkvHfniyXyQW3mVwSRBydc09zOSxBiwFSgn5i/BKlCGQyhw1W6zp/rg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  </head>
+  <body>
+    <style>
+      .slide {
+        transform: translateY(30%);
+        width: 800px;
+        height: 600px;
+        overflow: hidden;
+        margin: auto;
+        background-color: white;
+        text-align: left;
+        box-shadow: 1px 1px 1px 1px black;
+        border-radius: 1px;
+      }
+
+      .header {
+        font-size: 24px;
+        text-align: center;
+        width: 100%;
+        height: auto;
+      }
+
+      .block {
+        display: inline-block;
+        border: 1px solid black;
+        width: 200px;
+        height: 200px;
+        vertical-align: top;
+        box-sizing: border-box;
+      }
+
+      .row {
+        display: flex;
+        width: 100%;
+        height: auto;
+        min-height: 300px;
+      }
+      body {
+        text-align: center;
+        background-color: #CCC;
+      }
+    </style>
+    <script type="text/javascript">
+      window.onload = () => {
+        const editor = grapesjs.init({
+          // Indicate where to init the editor. You can also pass an HTMLElement
+          container: 'body',
+          // Get the content for the canvas directly from the element
+          // As an alternative we could use: `components: '<h1>Hello World Component!</h1>'`,
+          fromElement: true,
+          // Size of the editor
+          height: '100%',
+          width: 'auto',
+          // Disable the storage manager for the moment
+          storageManager: {
+            id: 'lp-gjs-',
+            type: 'local',
+            autosave: true,
+            autoload: true,
+            stepsBeforeSave: 1,
+            storeComponents: true,
+            storeStyles: true,
+            storeHtml: true,
+            storeCss: true
+          },
+          // Avoid any default panel
+          //panels: { defaults: [] },
+          blockManager: {
+            blocks: [
+              {
+                id: 'container',
+                label: 'Container',
+                content: '<div class="block"></div>'
+              },
+              {
+                id: 'text',
+                label: 'Text',
+                content: '<div data-gs-type="text">placeholder text</div>'
+              },
+              {
+                id: 'row',
+                label: 'Row',
+                content: '<div></div>'
+              }
+            ]
+          }
+        });
+      };
+
+    </script>
+
+    <div style="position: absolute; top: 10; left: 10;">GrapesJs</div>
+
+    <div id="slide-container" class="slide">
+      <div id="text" class="row">
+        <p class="header">Property header</p>
+      </div>
+      <div id="blocks" class="row">
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block">
+          <img src="https://via.placeholder.com/150" id="image" />
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
